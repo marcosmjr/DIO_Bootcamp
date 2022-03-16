@@ -9,7 +9,7 @@
 
      Irá iniciar o git na pasta em questão criando uma pasta oculta .git com todos os arquivos usados por ele.
 
-     **git add *** Faz com quo git tenha ciência dos aquivo do diretório.
+     **git add * ** Faz com quo git tenha ciência dos aquivo do diretório.
 
      **git commit -m "texto"**  Tira uma "impressão" do estado em que os arquivos do projeto estão, muda seu status para unmodifier. 
 
