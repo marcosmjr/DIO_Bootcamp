@@ -21,9 +21,10 @@ function jump(){
             let downInterval = setInterval(()=> {
                 position -= 20;
                 dino.style.bottom = position + 'px';
-                if(position <= 0) 
+                if(position <= 0){ 
                     clearInterval(downInterval);
                     isJumping = false;
+                }
             },20);
         }else{
             //subindo
