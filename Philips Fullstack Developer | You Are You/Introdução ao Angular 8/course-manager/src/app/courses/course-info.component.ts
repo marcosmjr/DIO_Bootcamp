@@ -14,12 +14,18 @@ export class CourseInfoComponent implements OnInit{
 
     constructor(private activatedRoute: ActivatedRoute, private courseServise: CourseServise){ }
 
-    ngOnInit(): void {
-        this.course = this.courseServise.retriveById(+this.activatedRoute.snapshot.paramMap.get('id')!);  
-        // ! diz para o compilador não se preocupar com o null
+    ngOnInit(): void { 
+        this.courseServise.retriveById(+this.activatedRoute.snapshot.paramMap.get('id')!).subscribe({  // ! diz para o compilador não se preocupar com o null
+            next: course => this.course = course,
+            error: err => console.log('Erro ', err)
+        });  
+       
     }
 
     save(): void{
-        this.courseServise.save(this.course);
+        this.courseServise.save(this.course).subscribe({
+            next: course => console.log('Save with success ', course),
+            error: err => console.log('Erro ', err)
+        });
     }
 }
