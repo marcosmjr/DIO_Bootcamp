@@ -2,7 +2,7 @@
 
 # Introdução ao Angular 8
 
-- Projessor: Weslley Holanda
+- Projessor: Wesllhey Holanda
 
 - https://github.com/wesllhey/course-manager
 
