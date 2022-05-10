@@ -1,4 +1,4 @@
-Curso: Diretiva - Serviços
+Curso: Diretivas - Serviços
 Professor: Ivo Soares
 EDA: Digital Inovation One
 10/05/2022
