@@ -1,3 +1,4 @@
+
 import { MarcaTextoDirective } from './marca-texto.directive';
 
 describe('MarcaTextoDirective', () => {

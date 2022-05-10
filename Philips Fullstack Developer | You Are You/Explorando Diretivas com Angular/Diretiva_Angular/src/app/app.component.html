@@ -16,7 +16,7 @@
 </ng-template>
 
 
-<ul [ngSwitch]="count" class="list-group mx-auto col-3">
+<ul [ngSwitch]="count" class="list-group mx-auto col-4">
   <li class="list-group-item" *ngSwitchCase="3">
   É igual a 3
   </li>
@@ -34,20 +34,12 @@
   </li>
 </ul>
 
-<ul class="list-group mx-auto my-3 col-3">
-  <li 
-    class="list-group-item"
-    *ngFor="let pessoa of pessoas"    
-    >
-    O nome da pesssoa é {{ pessoa.nome }} {{ pessoa.sobrenome }}
+<app-list-people></app-list-people>
 
-  </li>
-</ul>
-
-<ul class="list-group mx-auto my-3 col-3">
+<ul class="list-group mx-auto my-3 col-4">
  <ng-template ngFor let-pessoa [ngForOf]="pessoas">
   <li class="list-group-item" >
-    O nome da pesssoa é {{ pessoa.nome }} {{ pessoa.sobrenome }}
+   O nome da pesssoa é {{ pessoa.firstName }} {{ pessoa.lastName }} e ela tem idade {{ pessoa.age }}.
   </li>
  </ng-template>
  
@@ -67,3 +59,15 @@
 
   <h4>Saida: {{text}}  </h4>
 </div>
+
+<div class="container my-5">
+    <div class="row d-flex aling-item-center justify-content-center">
+      <h2 class="text-center">LISTAGEM DE PERSONAGENS RICK AND MORTY</h2>
+      <div class="col-12">
+        <app-list-api></app-list-api>
+      </div>
+    </div>
+</div>
+
+
+
