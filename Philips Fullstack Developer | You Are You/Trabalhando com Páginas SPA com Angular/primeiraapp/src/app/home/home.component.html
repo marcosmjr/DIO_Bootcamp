@@ -1,4 +1,13 @@
-<mat-toolbar>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <mat-toolbar>
     <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
       <mat-icon>menu</mat-icon>
     </button>
@@ -11,4 +20,33 @@
       <mat-icon>share</mat-icon>
     </button>
   </mat-toolbar>
+
+  <div>
+    <spa-alunos [valorInicial] = "valor"></spa-alunos>
+
+    <button (click)="mudarValor()">Mudar Valor</button>
+    <button (click)="reiniciarValor()">Reiniciar Valor</button>
+    <button (click)="exibirTabela()">Exibir Tela</button>
+
+  </div>
+
+  <table *ngIf="exibeTabela">
+    <tr>
+      <th>Nome</th>
+      <th>Idade</th>
+      <th>E-mail</th>
+      <th>Curso</th>
+    </tr>
+    <tr *ngFor="let aluno of listaAlunos">
+      <td>{{aluno.nome}}</td>
+      <td>{{aluno.idade}}</td>
+      <td>{{aluno.email}}</td>
+      <td>{{aluno.curso}}</td>
+    </tr>
+  </table>
+
+  <!--<spa-professores></spa-professores>-->
   
+
+</body>
+</html>
