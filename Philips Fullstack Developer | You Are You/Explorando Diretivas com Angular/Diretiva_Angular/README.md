@@ -1,3 +1,11 @@
+Curso: Diretiva - Serviços
+Professor: Ivo Soares
+EDA: Digital Inovation One
+10/05/2022
+
+
+
+
 # DiretivaAngular
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.6.
