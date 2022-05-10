@@ -1,3 +1,10 @@
+Curso: Trabalhando com Páginas SPA com Angular
+Professor: Camila Ribeiro
+EDA: Digital Inovation One
+09/05/2022
+
+
+
 # Primeiraapp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.6.
