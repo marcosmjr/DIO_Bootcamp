@@ -1,0 +1,28 @@
+<!-- class binding,            style binding                         interpolação -->
+<h1 [class.text-red]="textRed" [style.fontSize]="fontSize">O nome é: {{ retornaNome() }}</h1>
+
+
+
+<!-- property binding                    event binding -->
+<img [src]="imageUrl" [alt]="imageDesc" (click)="clicou('ok')" [style.width.px]="widthImg">
+
+<button [attr.aria-label]="buttonText" (click)="clicou('ficou vermelho')" [style.backgroundColor]="bgColor">{{  buttonText }}</button>
+
+<!--             event binding -->
+<input #input (keyup)="clicou(input.value)">
+<!-- interpolação -->
+{{ input.value }}
+
+<!--                                    Two-way data binding  -->
+<input type="text" class="form-control" [(ngModel)]="textInput">
+<p class="text-default">{{ textInput }}</p>
+
+
+<app-button [btnText]="'Cancelar'" [btnType]="'btn-danger'" (click)="destroiComponent()"></app-button>
+<app-button [btnText]="'Salvar'" [btnType]="'btn-success'"></app-button>
+
+<!-- Tambem funciona assim-->
+<app-button btnText="Clique aqui" btnType="btn-primary" (click)="incrementa()"></app-button>
+<app-button btnText="Teste" btnType="btn-default" (clickChildren)="clicouNoFilho($event)"></app-button>
+
+<app-life-cycle [number]="number" *ngIf="!destroi"></app-life-cycle>
