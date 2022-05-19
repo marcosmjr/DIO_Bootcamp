@@ -7,6 +7,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./todo-item.component.css']
 })
 export class TodoItemComponent implements OnInit {
+  
   @Input() todo: Todo ={
     id: 0,
     title: '',
@@ -14,6 +15,8 @@ export class TodoItemComponent implements OnInit {
   }
   
   @Output() remove = new EventEmitter;
+
+
   done = false;
 
   constructor() { }

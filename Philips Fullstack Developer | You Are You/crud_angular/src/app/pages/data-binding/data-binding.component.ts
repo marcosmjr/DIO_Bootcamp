@@ -9,7 +9,7 @@ export class DataBindingComponent implements OnInit {
 
   text = 'Marco Moreira';
   imageUrl = 'https://picsum.photos/300/300';
-  imageDesc = 'Essa é uma iamgem';
+  imageDesc = 'Essa é uma imagem';
 
 
   buttonText = 'Clique aqui';

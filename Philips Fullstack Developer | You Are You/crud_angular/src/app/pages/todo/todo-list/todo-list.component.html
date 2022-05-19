@@ -7,12 +7,8 @@
       </mat-card-header>
       <mat-card-content>
         <mat-form-field class="form-field">
-            <div>
-                <mat-label>Tarefa:</mat-label>
-                <div>
-                    <input type="text" id="todoInput" #todo matInput placeholder="Digite a sua tarefa" (keyup.enter)="addTodo(todo.value); todo.value = ''">
-                </div>
-            </div>
+          <mat-label>Tarefa:</mat-label>
+          <input type="text" #todo matInput placeholder="Digite a sua tarefa" (keyup.enter)="addTodo(todo.value); todo.value = ''">
         </mat-form-field>
         <mat-list role="list">
           <div *ngFor="let todo of todos">
