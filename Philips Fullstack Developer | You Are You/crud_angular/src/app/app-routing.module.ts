@@ -1,3 +1,4 @@
+import { PipesExamplesComponent } from './pages/pipes-examples/pipes-examples.component';
 import { TodoListComponent } from './pages/todo/todo-list/todo-list.component';
 import { DataBindingComponent } from './pages/data-binding/data-binding.component';
 import { NgModule } from '@angular/core';
@@ -10,7 +11,9 @@ const routes: Routes = [
   { path: 'form', component: UserFormComponent},
   { path: 'form/:id' , component: UserFormComponent },
   { path: 'data-binding', component: DataBindingComponent },
-  { path: 'todo', component: TodoListComponent }
+  { path: 'todo', component: TodoListComponent },
+  { path: 'pipes', component: PipesExamplesComponent }
+
 ];
 
 @NgModule({

@@ -20,6 +20,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { ButtonComponent } from './components/button/button.component';
 import { LifeCycleComponent } from './components/life-cycle/life-cycle.component';
+import { PipesExamplesComponent } from './pages/pipes-examples/pipes-examples.component';
+import { UpperCasePipe } from '@angular/common';
+import { PrintListPipe } from './pages/pipes-examples/printList/print-list.pipe';
+
 
 @NgModule({
   declarations: [
@@ -31,7 +35,9 @@ import { LifeCycleComponent } from './components/life-cycle/life-cycle.component
     TodoItemComponent,
     TodoListComponent,
     ButtonComponent,
-    LifeCycleComponent
+    LifeCycleComponent,
+    PipesExamplesComponent,
+    PrintListPipe
   ],
   imports: [
     BrowserModule,
@@ -45,9 +51,10 @@ import { LifeCycleComponent } from './components/life-cycle/life-cycle.component
     MatGridListModule,
     MatListModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    
   ],
-  providers: [],
+  providers: [UpperCasePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
