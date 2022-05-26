@@ -1,7 +1,7 @@
 import { FilterArea } from './../product-list/model/filter';
-
 import { FormGroup, FormBuilder } from '@angular/forms';
 import { Component,  OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-filters',
@@ -12,9 +12,10 @@ import { Component,  OnInit } from '@angular/core';
 export class FiltersComponent implements OnInit {
 
   filterForm: FormGroup;
-  filterArea: Array<any> = []
-  valorDe: number = 0;
-  valorAte: number = 0
+  filterArea: FilterArea = {
+  valorDe: 0,
+  valorAte: 0,
+}
 
   constructor(private formBuilder: FormBuilder) {
     this.filterForm = this.formBuilder.group({
@@ -31,8 +32,8 @@ export class FiltersComponent implements OnInit {
 
    filter(): void{
     this.filterArea = this.filterForm.value;
-    var aux = this.filterArea.length
-     console.log("filtro", aux)
+    
+     console.log("filtro", this.filterArea.valorDe,'***' , this.filterArea.valorAte)
     
   }
 

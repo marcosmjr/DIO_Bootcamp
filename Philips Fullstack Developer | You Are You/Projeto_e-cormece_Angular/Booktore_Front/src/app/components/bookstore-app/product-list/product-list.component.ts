@@ -33,8 +33,8 @@ export class ProductListComponent implements OnInit {
     })
 
   }
-
- /* filter(){
+/*
+  /filtro(valorDe: number, valorAte: number){
     let livros: any = [];
     livros = this.bookService.getBook().subscribe({
       next: data =>{
@@ -52,6 +52,7 @@ export class ProductListComponent implements OnInit {
       }
     }
     
-  }*/
+  }
+  */
 
 }
