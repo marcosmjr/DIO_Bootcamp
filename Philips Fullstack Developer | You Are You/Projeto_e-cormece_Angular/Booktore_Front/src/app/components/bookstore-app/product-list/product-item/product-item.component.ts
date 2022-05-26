@@ -9,7 +9,7 @@ import { Book } from '../model/book';
 export class ProductItemComponent implements OnInit {
 
   @Input()
-  livro!: Book;
+  livro: any;
   
   constructor() { }
 

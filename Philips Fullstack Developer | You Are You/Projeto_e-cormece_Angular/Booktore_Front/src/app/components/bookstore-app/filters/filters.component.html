@@ -2,18 +2,16 @@
     <div class="card-header">Filtros</div>
 
     <div class="card-body">
-        <form action="">
+        <form [formGroup]="filterForm">
             <div class="form-group">
                 <label for="de">De</label>
-                <input type="number" id="de" class="form-control">
+                <input type="number" id="de" class="form-control" formControlName="valorDe">
             </div>
             <div class="form-group">
                 <label for="ate">Até</label>
-                <input type="number" id="ate" class="form-control">
+                <input type="number" id="ate" class="form-control" formControlName="valorAte">
             </div>
-            <button class="btn btn-primary btn block btn-sm my-3">Filtrar</button>
-           
         </form>
-
+        <button class="btn btn-primary btn block btn-sm my-3" (click)="filter()">Filtrar</button>
     </div>
 </div>
