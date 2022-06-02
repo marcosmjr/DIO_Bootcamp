@@ -1,0 +1,350 @@
+create table Clientes
+(
+	Codigo int not null,
+	Nome varchar(100) not null,
+	TipoPessoa char(1) not null
+)
+
+create table Produtos
+(
+	Codigo int,
+	Nome varchar(100),
+	Descricao varchar(200),
+	Peco float
+)
+
+create table Pedido
+(
+	Codigo int not null,
+	DataSolicitacao datetime not null,
+	FlagPago bit not null,
+	TotalPedido float not null,
+	CodigoCliente int not null
+)
+
+create table PedidoItem
+(
+	CodigoPedido int not null,
+	CodigoProduto int not null,
+	Preco float not null,
+	Quantidade int not null
+)
+
+select * from Clientes
+
+insert into clientes (codigo, nome, TipoPessoa) values (1, 'Marcos', 'F');
+insert clientes (codigo, nome, TipoPessoa) values (2, 'Marcos', 'F');
+insert clientes (TipoPessoa, codigo, nome ) values ('F', 3, 'Marcos');
+insert into clientes values (4, 'Marcos', 'F');
+insert into clientes values (5, 'Marcos', 'F'), (6, 'Marcos', 'J');
+
+
+select *
+from clientes
+where TipoPessoa = 'J'
+
+update clientes
+set  Codigo = 7,
+     Nome = 'José'
+where TipoPessoa = 'J'
+
+
+update clientes
+set TipoPessoa = 'J'
+
+
+delete
+from Clientes
+where Codigo in(5,4,3,2)
+
+select * from clientes
+where Codigo = 1
+and TipoPessoa = 'J'
+
+select * from clientes
+where Codigo = 1
+or TipoPessoa = 'J'
+
+
+select * from Produtos
+
+insert Produtos values(1, 'Caneta', 'Caneta Azul', 1.5)
+insert Produtos values(2, 'Caderno', 'Caderno 10 matérias', 20.99)
+
+select * from Pedido
+
+insert Pedido values(1, getdate(), 0, 3, 7)
+
+select * from PedidoItem
+
+insert PedidoItem values (1, 1, 1.5, 2)
+
+
+select * from Pedido
+select * from PedidoItem
+
+
+insert Pedido values(2, getdate(), 0, 22.49, 1)
+
+insert PedidoItem values (2, 1, 1.5, 1)
+insert PedidoItem values (2, 2, 20.99, 1)
+
+
+insert Clientes (Codigo, Nome, TipoPessoa) values (2, 'Higor', 'F')
+
+select ISNULL(DataCriacao, getdate()), * from Clientes
+
+select *,
+	case
+		when TipoPessoa = 'J' then 'Jurídica'
+		when TipoPessoa = 'F' then 'Fsica'
+		else 'Pessoa indefinida'
+	end
+from Clientes
+
+
+select *, convert(varchar, DataSolicitacao)
+from Pedido
+
+select *, convert(varchar, DataSolicitacao, 103)
+from Pedido
+
+
+select *,
+	case
+		when TipoPessoa = 'J' then 'Jurídica'
+		when TipoPessoa = 'F' then 'Fsica'
+		else 'Pessoa indefinida'
+	end + ' ' + convert(varchar, getdate(), 103)
+from Clientes
+
+
+select * from Clientes
+
+alter table Clientes add constraint pk_cliente primary key (Codigo)
+
+
+
+
+select * from Clientes
+
+insert Clientes values ('Cristiana', 'F', getdate())
+
+
+
+
+alter table PedidoItem add constraint fk_pedido foreign key (CodigoPedido) references Pedido (Codigo)
+
+
+alter table Pedido add CodigoStatus int
+alter table Pedido add DescStatus varchar(50)
+
+
+update Pedido set CodigoStatus = 1, DescStatus = 'Em andamento'
+
+select * from Pedido
+select * from Status
+
+
+select *
+from Clientes cli
+inner join Pedido ped
+on cli.Codigo = ped.CodigoCliente
+
+
+select *
+from Clientes cli
+left join Pedido ped
+on cli.Codigo = ped.CodigoCliente
+
+select *
+from Clientes cli
+right join Pedido ped
+on cli.Codigo = ped.CodigoCliente
+
+select *
+from Clientes cli
+left join Pedido ped
+on cli.Codigo = ped.CodigoCliente
+where ped.TotalPedido > 10
+
+select *
+from Clientes cli
+left join Pedido ped
+on cli.Codigo = ped.CodigoCliente
+and ped.TotalPedido > 10
+
+select cli.Nome,
+	   ped.TotalPedido,
+	   case
+			when cli.TipoPessoa = 'F' then 'Física'
+			else 'Juridíca'
+		end TipoPesssoa
+from Clientes cli
+left join Pedido ped
+on cli.Codigo = ped.CodigoCliente
+
+
+select *
+from PedidoItem t1
+inner join PedidoItemLog t2
+on t1.CodigoPedido = t2.CodigoPedido
+and t1.CodigoProduto = t2.CodigoProduto
+inner join StatusPedidoItem t3
+on t3.Codigo = t2.CodigoStatusPedidoItem
+where Preco between 1 and 2
+
+
+select Preco * Quantidade
+from PedidoItem t1
+inner join PedidoItemLog t2
+on t1.CodigoPedido = t2.CodigoPedido
+and t1.CodigoProduto = t2.CodigoProduto
+inner join StatusPedidoItem t3
+on t3.Codigo = t2.CodigoStatusPedidoItem
+
+select sum(Preco * Quantidade)
+from PedidoItem t1
+inner join PedidoItemLog t2
+on t1.CodigoPedido = t2.CodigoPedido
+and t1.CodigoProduto = t2.CodigoProduto
+inner join StatusPedidoItem t3
+on t3.Codigo = t2.CodigoStatusPedidoItem
+
+select avg(Preco)
+from PedidoItem t1
+inner join PedidoItemLog t2
+on t1.CodigoPedido = t2.CodigoPedido
+and t1.CodigoProduto = t2.CodigoProduto
+inner join StatusPedidoItem t3
+on t3.Codigo = t2.CodigoStatusPedidoItem
+
+select count(*)
+from PedidoItem t1
+inner join PedidoItemLog t2
+on t1.CodigoPedido = t2.CodigoPedido
+and t1.CodigoProduto = t2.CodigoProduto
+inner join StatusPedidoItem t3
+on t3.Codigo = t2.CodigoStatusPedidoItem
+
+select *
+from PedidoItem t1
+inner join PedidoItemLog t2
+on t1.CodigoPedido = t2.CodigoPedido
+and t1.CodigoProduto = t2.CodigoProduto
+inner join StatusPedidoItem t3
+on t3.Codigo = t2.CodigoStatusPedidoItem
+inner join Produtos t4
+on t4.Codigo = t2.CodigoProduto
+
+
+select t4.Codigo,
+	   t4.Descricao,
+	   t1.Preco * t1.Quantidade
+from PedidoItem t1
+inner join PedidoItemLog t2
+on t1.CodigoPedido = t2.CodigoPedido
+and t1.CodigoProduto = t2.CodigoProduto
+inner join StatusPedidoItem t3
+on t3.Codigo = t2.CodigoStatusPedidoItem
+inner join Produtos t4
+on t4.Codigo = t2.CodigoProduto
+
+
+select t4.Codigo,
+	   t4.Descricao,
+	   sum(t1.Preco * t1.Quantidade) somatoria
+from PedidoItem t1
+inner join PedidoItemLog t2
+on t1.CodigoPedido = t2.CodigoPedido
+and t1.CodigoProduto = t2.CodigoProduto
+inner join StatusPedidoItem t3
+on t3.Codigo = t2.CodigoStatusPedidoItem
+inner join Produtos t4
+on t4.Codigo = t2.CodigoProduto
+group by t4.Codigo,
+		 t4.Descricao
+order by 3 desc
+
+
+select t4.Codigo,
+	   t4.Descricao,
+	   sum(t1.Preco * t1.Quantidade) somatoria
+from PedidoItem t1
+inner join PedidoItemLog t2
+on t1.CodigoPedido = t2.CodigoPedido
+and t1.CodigoProduto = t2.CodigoProduto
+inner join StatusPedidoItem t3
+on t3.Codigo = t2.CodigoStatusPedidoItem
+inner join Produtos t4
+on t4.Codigo = t2.CodigoProduto
+group by t4.Codigo,
+		 t4.Descricao
+order by somatoria desc
+
+select t4.Codigo,
+	   t4.Descricao,
+	   sum(t1.Preco * t1.Quantidade) somatoria
+from PedidoItem t1
+inner join PedidoItemLog t2
+on t1.CodigoPedido = t2.CodigoPedido
+and t1.CodigoProduto = t2.CodigoProduto
+inner join StatusPedidoItem t3
+on t3.Codigo = t2.CodigoStatusPedidoItem
+inner join Produtos t4
+on t4.Codigo = t2.CodigoProduto
+group by t4.Codigo,
+		 t4.Descricao
+order by t4.Codigo desc
+
+
+select t4.Codigo,
+	   t4.Descricao,
+	   sum(t1.Preco * t1.Quantidade) somatoria
+from PedidoItem t1
+inner join PedidoItemLog t2
+on t1.CodigoPedido = t2.CodigoPedido
+and t1.CodigoProduto = t2.CodigoProduto
+inner join StatusPedidoItem t3
+on t3.Codigo = t2.CodigoStatusPedidoItem
+inner join Produtos t4
+on t4.Codigo = t2.CodigoProduto
+group by t4.Codigo,
+		 t4.Descricao
+having sum(t1.Preco * t1.Quantidade) > 10
+
+
+select * 
+from Clientes cli
+where cli.Codigo not in(1, 2, 7) 
+
+select * 
+from Clientes cli
+where cli.Codigo not in(select CodigoCliente from Pedido) 
+
+select * 
+from Clientes cli
+left join Pedido ped
+on cli.Codigo = ped.CodigoCliente
+where ped.Codigo is null
+
+/*insert Pedido values (getdate(),0, 10, 1, 1)*/
+
+select *
+from Clientes cli
+left join Pedido ped
+on cli.Codigo = ped.CodigoCliente
+
+select cli.Codigo,
+	   cli.Nome,
+	   count(ped.Codigo) ContagemPeddidos
+from Clientes cli
+left join Pedido ped
+on cli.Codigo = ped.CodigoCliente
+group by cli.Codigo,
+		 cli.Nome
+
+select *
+from Clientes cli, Pedido ped, PedidoItem peditem
+where cli.Codigo = ped.CodigoCliente
+and ped.Codigo = peditem.CodigoPedido
