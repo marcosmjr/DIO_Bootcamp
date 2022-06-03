@@ -1,0 +1,144 @@
+.body{
+    background-color: #fafafa;
+}
+.container{
+    height: 565px;
+    width: 762px;
+   /* margin-left: 22%;
+    margin-top: 32px;*/
+    display:flex;
+    flex-direction:row;
+    justify-content: space-between;
+
+}
+
+.painelImagens{
+    height: 100%;
+    width: 380px;
+}
+
+.panelLogin{
+   margin-top: 10px;
+    height: 100%;
+    width: 350px;
+}
+
+.logo{
+    height: 140px;   
+}
+
+.formulario {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.formulario input{
+    background-color: #fafafa;
+    width: 267px;
+    height: 36px;
+    border: 1px solid #dbdbdb;
+    margin-bottom: 5px;
+    border-radius: 3px;
+    font-size: small;
+}
+
+.btnEntra div{
+    background-color: #b2dffc;
+    width: 268px;
+    height: 30px;
+    border-radius: 5px;
+    margin-top: 15px;
+    color:white;
+    font-weight: bold;
+    
+}
+
+.traco div hr{
+    width: 100px;
+    margin: 25px; 
+}
+
+.traco div span{
+    color: #8e8e8e;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: small;
+}
+
+.entrarFacebook span{
+    margin-left: 5px;
+    font-size: 14px;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #385185;
+    
+}
+
+.esqueceuSenha{
+    margin-top: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #385185;
+}
+
+.login{
+    background-color: white;
+    border: 1px solid #dbdbdb;
+    height: 395px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.cadastro{
+    background-color: white;
+    border: 1px solid #dbdbdb;
+    height: 60px;
+    width: 100%;  
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+      
+}
+
+.cadastro span{
+    margin-right: 3px;
+}
+
+.cadastro a{
+    font-weight: bold;
+}
+
+.obtenha{
+    height: 60px;
+    width: 100%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+}
+.botoes{
+    height: 40px;
+    width: 100%;
+       
+}
+
+.botoes div img{
+    height: 40px;
+    width: auto;
+}
+
+.btn-apple{
+    margin-right: 5px;
+}
+
+.btn-goole{
+    margin-left: 5px;
+}
+
+.centraliza{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
