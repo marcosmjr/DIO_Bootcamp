@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <h1>Contador 1</h1>
+    <p>Clique nos botões para alterar o valor</p>
+    <div id="counter">
+        <button name="subtrair" onclick="decrement()">-</button>
+        <span id="currentNumber">0</span>
+        <button name="adicionar" onclick="increment()">+</button>
+    </div>
+
+
+    <h1>Contador 2</h1>
+    <p>Clique nos botões para alterar o valor</p>
+    <div id="counter1">
+        <button name="subtrair" onclick="decrementNaoNegativo()">-</button>
+        <span id="currentNumber1">0</span>
+        <button name="adicionar" onclick="incrementMaximo10()">+</button>
+    </div>
+    
+
+    <h1>Contador 3</h1>
+    <p>Clique nos botões para alterar o valor</p>
+    <div id="counter3">
+        <button name="subtrair" onclick="decrementMinimo0()">-</button>
+        <span id="currentNumber3">0</span>
+        <button name="adicionar" onclick="incrementMaximo10a()">+</button>
+    </div>
+
+    <h1>Contador 4 - usando addEventListener</h1>
+    <p>Clique nos botões para alterar o valor</p>
+    <div id="counter4">
+        <button id="subtrair" name="subtrair" onclick="decrementMinimob()">-</button>
+        <span id="currentNumber4">0</span>
+        <button id="adicionar" name="adicionar" onclick="incrementMaximo10b()">+</button>
+    </div>
+
+
+    <script src="./assets/js/script.js"></script>
+
+</body>
+</html>
