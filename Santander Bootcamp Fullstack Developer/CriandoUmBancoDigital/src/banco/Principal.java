@@ -3,7 +3,6 @@ package banco;
 
 import banco.Operacoes.Movimentacao;
 import banco.cadastro.Cadastro;
-import banco.conta.Conta;
 import banco.conta.ContaCorrente;
 import banco.conta.Poupanca;
 
